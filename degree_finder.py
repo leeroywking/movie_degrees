@@ -1,24 +1,13 @@
 import json
 
-# actor_links = {}
-# for actor in actors:
-#     acted_in = actors[actor]
-#     if actor not in actor_links:
-#         actor_links[actor] = {}
-#     for movie in acted_in:
-#         linked_actors = movies[movie]
-#         for link in linked_actors:
-#             if link != actor:
-#                 if link not in actor_links[actor]:
-#                     actor_links[actor][link] = []
-#                 actor_links[actor][link].append(movie)
-
-with open("./actor_links.json") as f:
-    print("Loading Database...")
-    actor_links = json.load(f)
-    print("Database Loaded!")
-
-# print(json.dumps(actor_links["Gary Oldman"]))
+try:
+    with open("./actor_links.json") as f:
+        print("Loading Database...")
+        actor_links = json.load(f)
+        print("Database Loaded!")
+except:
+    print("Error actor_links.json does not exist. Did you follow the setup instructions in the read me?")
+    exit()
 
 def find_path_in_links(actor1 = "Helena Bonham Carter", actor2 = "Chris Hemsworth"):
     print("checking if actors are in database")
